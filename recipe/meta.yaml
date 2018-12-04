@@ -12,15 +12,15 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1001
-  script: "python -m pip install --no-deps --ignore-installed ."
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
   entry_points:
     - hyper = hyper.cli:main
 
 requirements:
-  host:
+  build:
     - python
-    - pip
+    - setuptools
   run:
     - python
     - h2          >=2.4,<3.0,!=2.5.0
